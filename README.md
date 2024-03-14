@@ -40,6 +40,22 @@ cp example_config.yaml config.yaml
 After doing this, CedarSentinel can be executed in the same way as any other
 Python script; the file to run is `bot.py`.
 
+### Using through Docker
+
+```yaml
+services:
+  cedarsentinel:
+    build: .
+    volumes:
+      - ./gptc.db:/app/gptc.db
+      - ./config.yaml:/app/config.yaml
+      - ./knownUsers.json:/app/knownUsers.json
+    expose:
+      - 8888:8888
+```
+
+(Note: Do not forget to create all the files mounted)
+
 ### Using CedarSentinel
 
 In a sense, CedarSentinel is easy to set up. Once you have the config file set
